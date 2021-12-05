@@ -1,15 +1,15 @@
 import pandas as pd
-import day1, day2, day3, day4
+import day1, day2, day3, day4, day5
 
-def parse_int_list(input):
-    l = input.split('\n')
+def parse_int_list(_input):
+    l = _input.split('\n')
     l.remove('')
     return [int(i) for i in l]
 
-def parse_movement_instructions(input):
+def parse_movement_instructions(_input):
     horizontal = []
     depth = []
-    for l in input.split('\n'):
+    for l in _input.split('\n'):
         if l:
             direction, value = l.split(' ')
             if direction == 'up':
@@ -24,9 +24,9 @@ def parse_movement_instructions(input):
 
     return horizontal, depth
 
-def parse_diagnostics(input):
+def parse_diagnostics(_input):
     diagnostics = []
-    for l in input.split('\n'):
+    for l in _input.split('\n'):
         if l:
             diagnostics.append([int(i) for i in l])
 
@@ -50,7 +50,6 @@ def parse_bingo(input_lines):
 
 
 def run_day1():
-
     f = open('inputs/day1.txt')
     day1.run(parse_int_list(f.read()))
     f.close()
@@ -71,10 +70,16 @@ def run_day4():
     day4.run(draws, cards)
     f.close()
 
+def run_day5():
+    f = open('inputs/day5.txt')
+    day5.run(f.read().split('\n'))
+    f.close()
+
 if __name__ == "__main__":
     
      # run_day1()
      # run_day2()
      # run_day3()
-     run_day4()
+     # run_day4()
+     run_day5()
 

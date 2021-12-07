@@ -1,5 +1,5 @@
 import pandas as pd
-import day1, day2, day3, day4, day5
+import day1, day2, day3, day4, day5, day6, day7
 
 def parse_int_list(_input):
     l = _input.split('\n')
@@ -75,11 +75,23 @@ def run_day5():
     day5.run(f.read().split('\n'))
     f.close()
 
+def run_day6():
+    f = open('inputs/day6.txt')
+    day6.run([int(i) for i in f.read().strip().split(',')])
+    f.close()
+
+def run_day7():
+    f = open('inputs/day7.txt')
+    day7.run([int(i) for i in f.read().strip().split(',')])
+    f.close()
+
 if __name__ == "__main__":
     
      # run_day1()
      # run_day2()
      # run_day3()
      # run_day4()
-     run_day5()
+     # run_day5()
+     # run_day6()
+     run_day7()
 

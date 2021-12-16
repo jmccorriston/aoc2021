@@ -1,5 +1,5 @@
 import pandas as pd
-import day1, day2, day3, day4, day5, day6, day7
+import day1, day2, day3, day4, day5, day6, day7, day8, day9
 
 def parse_int_list(_input):
     l = _input.split('\n')
@@ -49,6 +49,29 @@ def parse_bingo(input_lines):
     return draws, cards
 
 
+def parse_segments(input_lines):
+    
+    signals = []
+    outputs = []
+
+    for l in input_lines:
+        signal, output = l.split('|')
+        signals.append([''.join(sorted(s)) for s in signal.strip().split(' ')])
+        outputs.append([''.join(sorted(s)) for s in output.strip().split(' ')])
+
+    return signals, outputs
+
+def parse_lava_tubes(input_lines):
+
+    field = []
+    for l in input_lines:
+        l = l.strip()
+        if l:
+            line = [int(num) for num in l]
+        field.append(line)
+    return field
+
+
 def run_day1():
     f = open('inputs/day1.txt')
     day1.run(parse_int_list(f.read()))
@@ -85,6 +108,17 @@ def run_day7():
     day7.run([int(i) for i in f.read().strip().split(',')])
     f.close()
 
+def run_day8():
+    f = open('inputs/day8.txt')
+    signals, outputs = parse_segments(f.readlines())
+    day8.run(signals, outputs)
+    f.close()
+
+def run_day9():
+    f = open('inputs/day9_test.txt')
+    day9.run(parse_lava_tubes(f.readlines()))
+    f.close()
+
 if __name__ == "__main__":
     
      # run_day1()
@@ -93,5 +127,7 @@ if __name__ == "__main__":
      # run_day4()
      # run_day5()
      # run_day6()
-     run_day7()
+     # run_day7()
+     # run_day8()
+     run_day9()
 
